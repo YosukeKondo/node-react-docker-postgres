@@ -6,6 +6,7 @@ const htmlWebpackPlugin = new HtmlWebPackPlugin({
  filename: "./index.html"
 });
 module.exports = {
+mode: 'development', 
  entry: "./src/front/js/main.js",
  output: {
    path: path.resolve('dist'),
@@ -19,7 +20,7 @@ module.exports = {
        use: {
          loader: "babel-loader",
          options: {
-           presets: ["env", "react", "es2015"]
+           presets: ["env", "react", "es2015", "stage-0"]
          }
        }
      },
@@ -33,6 +34,21 @@ module.exports = {
  resolve: {
    extensions: [".js", ".jsx"]
  },
+
+ devServer: {
+  historyApiFallback: true,
+  inline: true,
+  open: true,
+  host: 'localhost',
+  port: 8080,
+  proxy: {
+    '/api/**': {
+      target: 'http://localhost:3000',
+      secure: false,
+      logLevel: 'debug'
+    }
+  },
+},
 
  plugins: [htmlWebpackPlugin]
 };
