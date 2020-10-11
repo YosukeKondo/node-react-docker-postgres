@@ -39,11 +39,11 @@ mode: 'development',
   historyApiFallback: true,
   inline: true,
   open: true,
-  host: 'localhost',
+  host: '0.0.0.0',
   port: 8080,
   proxy: {
     '/api/**': {
-      target: 'http://localhost:3000',
+      target: 'http://app:3000',
       secure: false,
       logLevel: 'debug'
     }

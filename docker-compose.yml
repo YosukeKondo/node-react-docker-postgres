@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./src/app/Dockerfile.app
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    volumes:
+      - ./src/app:/nrdp/src/app
+    tty: true
+    networks: 
+      - react-node-docker-postgres
+
+  front:
+    build:
+      context: .
+      dockerfile: ./src/front/Dockerfile.front
+    ports:
+     - "8080:8080"
+    volumes:
+      - ./src/front:/nrdp/src/front
+    tty: true
+    networks: 
+      - react-node-docker-postgres
+
+networks: 
+    react-node-docker-postgres:

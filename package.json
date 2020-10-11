@@ -6,6 +6,7 @@
   "scripts": {
     "front": "webpack-dev-server --config ./config/webpack.config.js --open --mode development",
     "app": "nodemon src/app/js/main.js  --exec babel-node",
+    "app-debug": "nodemon -L --inspect-brk=0.0.0.0:9229 src/app/js/main.js  --exec babel-node",
     "dev": "concurrently \"npm run front\" \"npm run app\""
   },
   "repository": {
