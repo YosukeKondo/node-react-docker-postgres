@@ -9,4 +9,4 @@ COPY ./src/app ./src/app
 
 EXPOSE 3000
 
-CMD ["npm", "run", "app-debug"]
+CMD ["npm", "run", "app"]
