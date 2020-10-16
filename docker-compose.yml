@@ -11,6 +11,8 @@ services:
     volumes:
       - ./src/app:/nrdp/src/app
     tty: true
+    links: 
+      - postgres
     networks: 
       - react-node-docker-postgres
 
@@ -23,6 +25,19 @@ services:
     volumes:
       - ./src/front:/nrdp/src/front
     tty: true
+    networks: 
+      - react-node-docker-postgres
+
+  postgres:
+    build:
+      context: .
+      dockerfile: ./db/Dockerfile.db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
     networks: 
       - react-node-docker-postgres
 

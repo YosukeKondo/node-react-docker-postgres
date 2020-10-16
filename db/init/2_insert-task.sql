@@ -1,0 +1,1 @@
+INSERT INTO task (title, description, "createdAt", "updatedAt") VALUES ('postgres構築', 'Sequelizeからアクセスする', now(), now());
