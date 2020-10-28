@@ -1,7 +1,7 @@
-create table if not exists task(
+create table if not exists chat(
 id       SERIAL PRIMARY KEY,
-title         VARCHAR(20),
-description   VARCHAR(100),
+username         VARCHAR(20),
+comment   VARCHAR(100),
 "createdAt"   TIMESTAMP NOT NULL,
 "updatedAt"   TIMESTAMP NOT NULL
 );

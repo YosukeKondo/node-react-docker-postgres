@@ -1,0 +1,1 @@
+INSERT INTO chat (username, comment, "createdAt", "updatedAt") VALUES ('ichiro', 'Hello Chat', now(), now());
